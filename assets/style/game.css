@@ -1,0 +1,220 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: green;
+}
+
+  .grid {
+    width: 40vmin;
+    height: 80vmin;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    margin: auto;
+    gap: 1rem;  
+  }
+
+.card {
+  background-color: transparent;
+  perspective: 1000px;
+  width: 100%;
+  height: 100%;
+}
+
+.card-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  pointer-events: none;
+}
+
+.flip-card-front {
+  transform: rotateY(180deg);
+  pointer-events: none;
+}
+
+.flip-card-back {
+  background: url(../imgs/cards/back.jpeg) center center/cover no-repeat;
+}
+
+.show {
+  transform: rotateY(180deg);
+}
+
+.club-1 {
+  background: url(../imgs/cards/ace_of_clubs.png) center center/cover no-repeat;
+}
+.club-2 {
+  background: url(../imgs/cards/2_of_clubs.png) center center/cover no-repeat;
+}
+.club-3 {
+  background: url(../imgs/cards/3_of_clubs.png) center center/cover no-repeat;
+}
+.club-4 {
+  background: url(../imgs/cards/4_of_clubs.png) center center/cover no-repeat;
+}
+.club-5 {
+  background: url(../imgs/cards/5_of_clubs.png) center center/cover no-repeat;
+}
+.club-6 {
+  background: url(../imgs/cards/6_of_clubs.png) center center/cover no-repeat;
+}
+.club-7 {
+  background: url(../imgs/cards/7_of_clubs.png) center center/cover no-repeat;
+}
+.club-8 {
+  background: url(../imgs/cards/8_of_clubs.png) center center/cover no-repeat;
+}
+.club-9 {
+  background: url(../imgs/cards/9_of_clubs.png) center center/cover no-repeat;
+}
+.club-10 {
+  background: url(../imgs/cards/10_of_clubs.png) center center/cover no-repeat;
+}
+.club-11 {
+  background: url(../imgs/cards/jack_of_clubs.png) center center/cover no-repeat;
+}
+.club-12 {
+  background: url(../imgs/cards/queen_of_clubs.png) center center/cover no-repeat;
+}
+.club-13 {
+  background: url(../imgs/cards/king_of_clubs.png) center center/cover no-repeat;
+}
+
+.diamond-1 {
+  background: url(../imgs/cards/ace_of_diamonds.png) center center/cover no-repeat;
+}
+.diamond-2 {
+  background: url(../imgs/cards/2_of_diamonds.png) center center/cover no-repeat;
+}
+.diamond-3 {
+  background: url(../imgs/cards/3_of_diamonds.png) center center/cover no-repeat;
+}
+.diamond-4 {
+  background: url(../imgs/cards/4_of_diamonds.png) center center/cover no-repeat;
+}
+.diamond-5 {
+  background: url(../imgs/cards/5_of_diamonds.png) center center/cover no-repeat;
+}
+.diamond-6 {
+  background: url(../imgs/cards/6_of_diamonds.png) center center/cover no-repeat;
+}
+.diamond-7 {
+  background: url(../imgs/cards/7_of_diamonds.png) center center/cover no-repeat;
+}
+.diamond-8 {
+  background: url(../imgs/cards/8_of_diamonds.png) center center/cover no-repeat;
+}
+.diamond-9 {
+  background: url(../imgs/cards/9_of_diamonds.png) center center/cover no-repeat;
+}
+.diamond-10 {
+  background: url(../imgs/cards/10_of_diamonds.png) center center/cover no-repeat;
+}
+.diamond-11 {
+  background: url(../imgs/cards/jack_of_diamonds.png) center center/cover no-repeat;
+}
+.diamond-12 {
+  background: url(../imgs/cards/queen_of_diamonds.png) center center/cover no-repeat;
+}
+.diamond-13 {
+  background: url(../imgs/cards/king_of_diamonds.png) center center/cover no-repeat;
+}
+
+.heart-1 {
+  background: url(../imgs/cards/ace_of_hearts.png) center center/cover no-repeat;
+}
+.heart-2 {
+  background: url(../imgs/cards/2_of_hearts.png) center center/cover no-repeat;
+}
+.heart-3 {
+  background: url(../imgs/cards/3_of_hearts.png) center center/cover no-repeat;
+}
+.heart-4 {
+  background: url(../imgs/cards/4_of_hearts.png) center center/cover no-repeat;
+}
+.heart-5 {
+  background: url(../imgs/cards/5_of_hearts.png) center center/cover no-repeat;
+}
+.heart-6 {
+  background: url(../imgs/cards/6_of_hearts.png) center center/cover no-repeat;
+}
+.heart-7 {
+  background: url(../imgs/cards/7_of_hearts.png) center center/cover no-repeat;
+}
+.heart-8 {
+  background: url(../imgs/cards/8_of_hearts.png) center center/cover no-repeat;
+}
+.heart-9 {
+  background: url(../imgs/cards/9_of_hearts.png) center center/cover no-repeat;
+}
+.heart-10 {
+  background: url(../imgs/cards/10_of_hearts.png) center center/cover no-repeat;
+}
+.heart-11 {
+  background: url(../imgs/cards/jack_of_hearts.png) center center/cover no-repeat;
+}
+.heart-12 {
+  background: url(../imgs/cards/queen_of_hearts.png) center center/cover no-repeat;
+}
+.heart-13 {
+  background: url(../imgs/cards/king_of_hearts.png) center center/cover no-repeat;
+}
+
+.spade-1 {
+  background: url(../imgs/cards/ace_of_spades.png) center center/cover no-repeat;
+}
+.spade-2 {
+  background: url(../imgs/cards/2_of_spades.png) center center/cover no-repeat;
+}
+.spade-3 {
+  background: url(../imgs/cards/3_of_spades.png) center center/cover no-repeat;
+}
+.spade-4 {
+  background: url(../imgs/cards/4_of_spades.png) center center/cover no-repeat;
+}
+.spade-5 {
+  background: url(../imgs/cards/5_of_spades.png) center center/cover no-repeat;
+}
+.spade-6 {
+  background: url(../imgs/cards/6_of_spades.png) center center/cover no-repeat;
+}
+.spade-7 {
+  background: url(../imgs/cards/7_of_spades.png) center center/cover no-repeat;
+}
+.spade-8 {
+  background: url(../imgs/cards/8_of_spades.png) center center/cover no-repeat;
+}
+.spade-9 {
+  background: url(../imgs/cards/9_of_spades.png) center center/cover no-repeat;
+}
+.spade-10 {
+  background: url(../imgs/cards/10_of_spades.png) center center/cover no-repeat;
+}
+.spade-11 {
+  background: url(../imgs/cards/jack_of_spades.png) center center/cover no-repeat;
+}
+.spade-12 {
+  background: url(../imgs/cards/queen_of_spades.png) center center/cover no-repeat;
+}
+.spade-13 {
+  background: url(../imgs/cards/king_of_spades.png) center center/cover no-repeat;
+}
+
