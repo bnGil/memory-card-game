@@ -88,7 +88,7 @@ function shuffle(array) {
 export function drawBoard(gameBoard, arr) {
   for (let i = 0; i < arr.length; i++) {
     const card = document.createElement("div");
-    card.dataset.visible = "false";
+    card.dataset.active = "false";
     card.dataset.card = arr[i];
     card.classList.add("card");
     gameBoard.appendChild(card);
@@ -108,13 +108,14 @@ export function drawBoard(gameBoard, arr) {
 gameBoard.addEventListener("click", cardHandler);
 
 export function cardHandler(e) {
-  if (e.target === e.currentTarget) return;
-  console.log(e.target);
-  e.target.dataset.visible = "true";
+  if (e.target.dataset.active === "untouchable") {
+    return;
+  }
+  e.target.dataset.active = "true";
   e.target.firstElementChild.classList.toggle("show");
-  const arrOfFlipCards = [...document.querySelectorAll(".card")]; //arr of 12 divs with class "card"
-  const twoCards = getTwoShownCards(arrOfFlipCards);
-  if (twoCards.length !== 2) {
+  const arrOfFlipCards = document.querySelectorAll(".card"); //arr of 12 divs with class "card"
+  let twoCards = getTwoShownCards(arrOfFlipCards);
+  if (twoCards.length < 2) {
     return;
   } else {
     compareTwoCards(twoCards[0], twoCards[1]);
@@ -122,13 +123,13 @@ export function cardHandler(e) {
 }
 
 function getTwoShownCards(arrOfCards) {
-  const res = [];
+  const shownCards = [];
   arrOfCards.forEach((card) => {
-    if (card.getAttribute("data-visible") === "true") {
-      res.push(card);
+    if (card.dataset.active === "true") {
+      shownCards.push(card);
     }
   });
-  return res;
+  return shownCards;
 }
 
 function compareTwoCards(card1, card2) {
@@ -136,17 +137,19 @@ function compareTwoCards(card1, card2) {
   console.log(card2.dataset.card);
   if (card1.dataset.card === card2.dataset.card) {
     correctGuess(card1, card2);
+    return true;
   } else {
     incorrectGuess(card1, card2);
+    return false;
   }
 }
 
 function incorrectGuess(card1, card2) {
   console.log("bye");
-  setTimeout(() => flipBack(card1), 1000);
-  setTimeout(() => flipBack(card2), 1000);
-  card1.dataset.visible = "false";
-  card2.dataset.visible = "false";
+  setTimeout(() => flipBack(card1), 2000);
+  setTimeout(() => flipBack(card2), 2000);
+  card1.dataset.active = "false";
+  card2.dataset.active = "false";
 }
 
 function flipBack(card) {
@@ -154,6 +157,8 @@ function flipBack(card) {
 }
 
 function correctGuess(card1, card2) {
+  card1.dataset.active = "untouchable";
+  card2.dataset.active = "untouchable";
   userCorrectCouples++;
   console.log(userCorrectCouples);
   if (userCorrectCouples === MAX_CORRECT_GUESSES) {
