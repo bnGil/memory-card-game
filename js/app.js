@@ -1,4 +1,5 @@
 export const gameBoard = document.querySelector(".grid");
+export let userCorrectCouples = 0;
 
 export let shuffledArray = shuffle(chooseRandomCards());
 
@@ -88,6 +89,7 @@ export function drawBoard(gameBoard, arr) {
     const card = document.createElement("div");
     card.dataset.visible = "false";
     card.dataset.card = arr[i];
+    // card.classList.add("card");
     gameBoard.appendChild(card);
     const cardContainer = document.createElement("div");
     cardContainer.classList.add("card-container");
@@ -104,10 +106,10 @@ export function drawBoard(gameBoard, arr) {
 
 gameBoard.addEventListener("click", (e) => cardHandler(e));
 
-function cardHandler(e) {
+export function cardHandler(e) {
   e.target.dataset.visible = "true";
   e.target.firstElementChild.classList.toggle("show");
-  const arrOfFlipCards = [...document.querySelectorAll(".flip-card")]; //arr of 12 divs with class "flip-card"
+  const arrOfFlipCards = [...document.querySelectorAll(".card")]; //arr of 12 divs with class "card"
   const twoCards = getTwoShownCards(arrOfFlipCards);
   if (twoCards.length !== 2) {
     return;
@@ -119,7 +121,7 @@ function cardHandler(e) {
 function getTwoShownCards(arrOfCards) {
   const res = [];
   arrOfCards.forEach((card) => {
-    if (card.getAttribute("data-shown") === "true") {
+    if (card.getAttribute("data-visible") === "true") {
       res.push(card);
     }
   });
@@ -127,9 +129,30 @@ function getTwoShownCards(arrOfCards) {
 }
 
 function compareTwoCards(card1, card2) {
-  if (card1.getAttribute("data-card") === card2.getAttribute("data-card")) {
-    correctGuess();
+  console.log(card1.dataset.card);
+  console.log(card2.dataset.card);
+  if (card1.dataset.card === card2.dataset.card) {
+    console.log("correct!");
+    correctGuess(card1, card2);
   } else {
-    incorrectGuess();
+    incorrectGuess(card1, card2);
   }
+}
+
+function incorrectGuess(card1, card2) {
+  console.log("bye");
+  setTimeout(() => flipBack(card1), 2000);
+  setTimeout(() => flipBack(card2), 2000);
+  card1.dataset.dataVisible = "false";
+  card2.dataset.dataVisible = "false";
+}
+
+function flipBack(card) {
+  card.firstElementChild.classList.remove("show");
+}
+
+function correctGuess(card1, card2) {
+  userCorrectCouples++;
+  console.log(userCorrectCouples);
+  //also need to make them unpressable
 }
