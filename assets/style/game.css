@@ -8,15 +8,15 @@ body {
   background-color: green;
 }
 
-  .grid {
-    width: 40vmin;
-    height: 80vmin;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(3, 1fr);
-    margin: auto;
-    gap: 1rem;  
-  }
+.grid {
+  width: 80vmin;
+  height: 80vmin;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  margin: auto;
+  gap: 1rem;
+}
 
 .card {
   background-color: transparent;
@@ -92,14 +92,16 @@ body {
   background: url(../imgs/cards/jack_of_clubs.png) center center/cover no-repeat;
 }
 .club-12 {
-  background: url(../imgs/cards/queen_of_clubs.png) center center/cover no-repeat;
+  background: url(../imgs/cards/queen_of_clubs.png) center center/cover
+    no-repeat;
 }
 .club-13 {
   background: url(../imgs/cards/king_of_clubs.png) center center/cover no-repeat;
 }
 
 .diamond-1 {
-  background: url(../imgs/cards/ace_of_diamonds.png) center center/cover no-repeat;
+  background: url(../imgs/cards/ace_of_diamonds.png) center center/cover
+    no-repeat;
 }
 .diamond-2 {
   background: url(../imgs/cards/2_of_diamonds.png) center center/cover no-repeat;
@@ -126,16 +128,20 @@ body {
   background: url(../imgs/cards/9_of_diamonds.png) center center/cover no-repeat;
 }
 .diamond-10 {
-  background: url(../imgs/cards/10_of_diamonds.png) center center/cover no-repeat;
+  background: url(../imgs/cards/10_of_diamonds.png) center center/cover
+    no-repeat;
 }
 .diamond-11 {
-  background: url(../imgs/cards/jack_of_diamonds.png) center center/cover no-repeat;
+  background: url(../imgs/cards/jack_of_diamonds.png) center center/cover
+    no-repeat;
 }
 .diamond-12 {
-  background: url(../imgs/cards/queen_of_diamonds.png) center center/cover no-repeat;
+  background: url(../imgs/cards/queen_of_diamonds.png) center center/cover
+    no-repeat;
 }
 .diamond-13 {
-  background: url(../imgs/cards/king_of_diamonds.png) center center/cover no-repeat;
+  background: url(../imgs/cards/king_of_diamonds.png) center center/cover
+    no-repeat;
 }
 
 .heart-1 {
@@ -169,13 +175,16 @@ body {
   background: url(../imgs/cards/10_of_hearts.png) center center/cover no-repeat;
 }
 .heart-11 {
-  background: url(../imgs/cards/jack_of_hearts.png) center center/cover no-repeat;
+  background: url(../imgs/cards/jack_of_hearts.png) center center/cover
+    no-repeat;
 }
 .heart-12 {
-  background: url(../imgs/cards/queen_of_hearts.png) center center/cover no-repeat;
+  background: url(../imgs/cards/queen_of_hearts.png) center center/cover
+    no-repeat;
 }
 .heart-13 {
-  background: url(../imgs/cards/king_of_hearts.png) center center/cover no-repeat;
+  background: url(../imgs/cards/king_of_hearts.png) center center/cover
+    no-repeat;
 }
 
 .spade-1 {
@@ -209,12 +218,14 @@ body {
   background: url(../imgs/cards/10_of_spades.png) center center/cover no-repeat;
 }
 .spade-11 {
-  background: url(../imgs/cards/jack_of_spades.png) center center/cover no-repeat;
+  background: url(../imgs/cards/jack_of_spades.png) center center/cover
+    no-repeat;
 }
 .spade-12 {
-  background: url(../imgs/cards/queen_of_spades.png) center center/cover no-repeat;
+  background: url(../imgs/cards/queen_of_spades.png) center center/cover
+    no-repeat;
 }
 .spade-13 {
-  background: url(../imgs/cards/king_of_spades.png) center center/cover no-repeat;
+  background: url(../imgs/cards/king_of_spades.png) center center/cover
+    no-repeat;
 }
-
