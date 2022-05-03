@@ -1,5 +1,6 @@
 export const gameBoard = document.querySelector(".grid");
 export let userCorrectCouples = 0;
+const MAX_CORRECT_GUESSES = 6;
 
 export let shuffledArray = shuffle(chooseRandomCards());
 
@@ -89,7 +90,7 @@ export function drawBoard(gameBoard, arr) {
     const card = document.createElement("div");
     card.dataset.visible = "false";
     card.dataset.card = arr[i];
-    // card.classList.add("card");
+    card.classList.add("card");
     gameBoard.appendChild(card);
     const cardContainer = document.createElement("div");
     cardContainer.classList.add("card-container");
@@ -104,9 +105,11 @@ export function drawBoard(gameBoard, arr) {
   }
 }
 
-gameBoard.addEventListener("click", (e) => cardHandler(e));
+gameBoard.addEventListener("click", cardHandler);
 
 export function cardHandler(e) {
+  if (e.target === e.currentTarget) return;
+  console.log(e.target);
   e.target.dataset.visible = "true";
   e.target.firstElementChild.classList.toggle("show");
   const arrOfFlipCards = [...document.querySelectorAll(".card")]; //arr of 12 divs with class "card"
@@ -132,7 +135,6 @@ function compareTwoCards(card1, card2) {
   console.log(card1.dataset.card);
   console.log(card2.dataset.card);
   if (card1.dataset.card === card2.dataset.card) {
-    console.log("correct!");
     correctGuess(card1, card2);
   } else {
     incorrectGuess(card1, card2);
@@ -141,10 +143,10 @@ function compareTwoCards(card1, card2) {
 
 function incorrectGuess(card1, card2) {
   console.log("bye");
-  setTimeout(() => flipBack(card1), 2000);
-  setTimeout(() => flipBack(card2), 2000);
-  card1.dataset.dataVisible = "false";
-  card2.dataset.dataVisible = "false";
+  setTimeout(() => flipBack(card1), 1000);
+  setTimeout(() => flipBack(card2), 1000);
+  card1.dataset.visible = "false";
+  card2.dataset.visible = "false";
 }
 
 function flipBack(card) {
@@ -154,5 +156,10 @@ function flipBack(card) {
 function correctGuess(card1, card2) {
   userCorrectCouples++;
   console.log(userCorrectCouples);
+  if (userCorrectCouples === MAX_CORRECT_GUESSES) {
+    //stop clock
+    //add two buttons to play again or go home page
+  }
+  // checkIfWon(userCorrectCouples, MAX_CORRECT_GUESSES);
   //also need to make them unpressable
 }
