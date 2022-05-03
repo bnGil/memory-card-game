@@ -1,5 +1,6 @@
 export const gameBoard = document.querySelector(".grid");
 export let userCorrectCouples = 0;
+const MAX_CORRECT_GUESSES = 6;
 
 export let shuffledArray = shuffle(chooseRandomCards());
 
@@ -104,7 +105,7 @@ export function drawBoard(gameBoard, arr) {
   }
 }
 
-gameBoard.addEventListener("click", (e) => cardHandler(e));
+gameBoard.addEventListener("click", cardHandler);
 
 export function cardHandler(e) {
   if (e.target.dataset.active === "untouchable") {
@@ -135,7 +136,6 @@ function compareTwoCards(card1, card2) {
   console.log(card1.dataset.card);
   console.log(card2.dataset.card);
   if (card1.dataset.card === card2.dataset.card) {
-    console.log("correct!");
     correctGuess(card1, card2);
     return true;
   } else {
@@ -157,8 +157,14 @@ function flipBack(card) {
 }
 
 function correctGuess(card1, card2) {
-  userCorrectCouples++;
-  console.log(userCorrectCouples);
   card1.dataset.active = "untouchable";
   card2.dataset.active = "untouchable";
+  userCorrectCouples++;
+  console.log(userCorrectCouples);
+  if (userCorrectCouples === MAX_CORRECT_GUESSES) {
+    //stop clock
+    //add two buttons to play again or go home page
+  }
+  // checkIfWon(userCorrectCouples, MAX_CORRECT_GUESSES);
+  //also need to make them unpressable
 }
