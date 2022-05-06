@@ -112,7 +112,10 @@ export function drawBoard(gameBoard, arr) {
 // gameBoard.addEventListener("click", cardHandler);
 
 export function cardHandler(e) {
-  if (e.target.dataset.active === "untouchable") {
+  if (
+    e.target.dataset.active === "untouchable" ||
+    e.target.dataset.pause === "true"
+  ) {
     return;
   }
   if (e.target === e.currentTarget) return;
@@ -123,8 +126,17 @@ export function cardHandler(e) {
   if (twoCards.length < 2) {
     return;
   } else {
+    arrOfFlipCards.forEach((card) => (card.dataset.pause = "true"));
+    unpause(arrOfFlipCards);
     compareTwoCards(twoCards[0], twoCards[1]);
   }
+}
+
+function unpause(arrOfCards) {
+  setTimeout(
+    () => arrOfCards.forEach((card) => (card.dataset.pause = "false")),
+    1000
+  );
 }
 
 function getTwoShownCards(arrOfCards) {
