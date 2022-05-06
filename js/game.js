@@ -1,13 +1,10 @@
-import { drawBoard, gameBoard, shuffledArray } from "./app.js";
-// const MAX_CORRECT_GUESSES = 6;
+import { drawBoard, gameBoard, shuffledArray, cardHandler } from "./app.js";
+import { startTimer } from "./timer.js";
 
-function main() {
+function startGame() {
   drawBoard(gameBoard, shuffledArray);
-  //start clock
-
-  // while (userCorrectCouples !== MAX_CORRECT_GUESSES) {
-  //   gameBoard.addEventListener("click", (e) => cardHandler(e));
-  // }
+  gameBoard.addEventListener("click", cardHandler);
+  startTimer();
 }
 
-main();
+startGame();
