@@ -120,7 +120,7 @@ export function cardHandler(e) {
   }
   if (e.target === e.currentTarget) return;
   e.target.dataset.active = "true";
-  e.target.firstElementChild.classList.toggle("show");
+  e.target.firstElementChild.classList.add("show");
   const arrOfFlipCards = document.querySelectorAll(".card"); //arr of 12 divs with class "card"
   let twoCards = getTwoShownCards(arrOfFlipCards);
   if (twoCards.length < 2) {
