@@ -1,6 +1,5 @@
 export const gameBoard = document.querySelector(".grid");
 export let userCorrectCouples = 0;
-const MAX_CORRECT_GUESSES = 6;
 
 export let shuffledArray = shuffle(chooseRandomCards());
 
@@ -111,6 +110,7 @@ export function cardHandler(e) {
   if (e.target.dataset.active === "untouchable") {
     return;
   }
+  if (e.target === e.currentTarget) return;
   e.target.dataset.active = "true";
   e.target.firstElementChild.classList.toggle("show");
   const arrOfFlipCards = document.querySelectorAll(".card"); //arr of 12 divs with class "card"
@@ -146,8 +146,8 @@ function compareTwoCards(card1, card2) {
 
 function incorrectGuess(card1, card2) {
   console.log("bye");
-  setTimeout(() => flipBack(card1), 2000);
-  setTimeout(() => flipBack(card2), 2000);
+  setTimeout(() => flipBack(card1), 1000);
+  setTimeout(() => flipBack(card2), 1000);
   card1.dataset.active = "false";
   card2.dataset.active = "false";
 }

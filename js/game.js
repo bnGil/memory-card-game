@@ -5,7 +5,7 @@ function main() {
   drawBoard(gameBoard, shuffledArray);
   //start clock
 
-  // while (userCorrectCouples !== MAX_CORRECT_GUESSES) {
+  // while (userCorrectCouples < MAX_CORRECT_GUESSES) {
   //   gameBoard.addEventListener("click", (e) => cardHandler(e));
   // }
 }
