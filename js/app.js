@@ -1,7 +1,8 @@
 export const gameBoard = document.querySelector(".grid");
-export let userCorrectCouples = 0;
-
 export let shuffledArray = shuffle(chooseRandomCards());
+
+let userCorrectCouples = 0;
+const MAX_CORRECT_GUESSES = 6;
 
 const elementsObject = {
   1: "club-1",
@@ -104,7 +105,7 @@ export function drawBoard(gameBoard, arr) {
   }
 }
 
-gameBoard.addEventListener("click", cardHandler);
+// gameBoard.addEventListener("click", cardHandler);
 
 export function cardHandler(e) {
   if (e.target.dataset.active === "untouchable") {
@@ -162,7 +163,9 @@ function correctGuess(card1, card2) {
   userCorrectCouples++;
   console.log(userCorrectCouples);
   if (userCorrectCouples === MAX_CORRECT_GUESSES) {
-    //stop clock
+    clearInterval(timerInterval);
+    endBtns.style.visibility = "visible";
+
     //add two buttons to play again or go home page
   }
   // checkIfWon(userCorrectCouples, MAX_CORRECT_GUESSES);
