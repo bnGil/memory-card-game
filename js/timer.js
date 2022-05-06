@@ -1,5 +1,5 @@
 const timer = document.getElementById("stopwatch");
-let timerInterval;
+export let timerInterval;
 
 export function startTimer() {
   // First we start by clearing the existing timer, in case of a restart

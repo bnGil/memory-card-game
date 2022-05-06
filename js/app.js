@@ -1,6 +1,10 @@
 export const gameBoard = document.querySelector(".grid");
 export let shuffledArray = shuffle(chooseRandomCards());
 
+import { timerInterval } from "./timer.js";
+
+const modalContainer = document.getElementById("modal-container");
+
 let userCorrectCouples = 0;
 const MAX_CORRECT_GUESSES = 6;
 
@@ -176,10 +180,6 @@ function correctGuess(card1, card2) {
   console.log(userCorrectCouples);
   if (userCorrectCouples === MAX_CORRECT_GUESSES) {
     clearInterval(timerInterval);
-    endBtns.style.visibility = "visible";
-
-    //add two buttons to play again or go home page
+    modalContainer.classList.add("show-message");
   }
-  // checkIfWon(userCorrectCouples, MAX_CORRECT_GUESSES);
-  //also need to make them unpressable
 }
