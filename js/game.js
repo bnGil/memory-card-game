@@ -5,6 +5,7 @@ function startGame() {
   drawBoard(gameBoard, shuffledArray);
   gameBoard.addEventListener("click", cardHandler);
   startTimer();
+  sessionStorage.clear();
 }
 
 startGame();
