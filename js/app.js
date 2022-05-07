@@ -1,72 +1,26 @@
-export const gameBoard = document.querySelector(".grid");
-export let shuffledArray = shuffle(chooseRandomCards());
-
 import { timerInterval } from "./timer.js";
+import { elementsObject } from "./elementsObj.js";
 
-const modalContainer = document.getElementById("modal-container");
-
-let userCorrectCouples = 0;
-const MAX_CORRECT_GUESSES = 6;
-
-const elementsObject = {
-  1: "club-1",
-  2: "club-2",
-  3: "club-3",
-  4: "club-4",
-  5: "club-5",
-  6: "club-6",
-  7: "club-7",
-  8: "club-8",
-  9: "club-9",
-  10: "club-10",
-  11: "club-11",
-  12: "club-12",
-  13: "club-13",
-  14: "heart-1",
-  15: "heart-2",
-  16: "heart-3",
-  17: "heart-4",
-  18: "heart-5",
-  19: "heart-6",
-  20: "heart-7",
-  21: "heart-8",
-  22: "heart-9",
-  23: "heart-10",
-  24: "heart-11",
-  25: "heart-12",
-  26: "heart-13",
-  27: "diamond-1",
-  28: "diamond-2",
-  29: "diamond-3",
-  30: "diamond-4",
-  31: "diamond-5",
-  32: "diamond-6",
-  33: "diamond-7",
-  34: "diamond-8",
-  35: "diamond-9",
-  36: "diamond-10",
-  37: "diamond-11",
-  38: "diamond-12",
-  39: "diamond-13",
-  40: "spade-1",
-  41: "spade-2",
-  42: "spade-3",
-  43: "spade-4",
-  44: "spade-5",
-  45: "spade-6",
-  46: "spade-7",
-  47: "spade-8",
-  48: "spade-9",
-  49: "spade-10",
-  50: "spade-11",
-  51: "spade-12",
-  52: "spade-13",
+const uniqueCards = {
+  easy: 6,
+  medium: 9,
+  hard: 12,
 };
 
-function chooseRandomCards() {
+const difficulty = sessionStorage.getItem("difficulty");
+const modalContainer = document.getElementById("modal-container");
+let userCorrectCouples = 0;
+const MAX_COUPLES = uniqueCards[difficulty];
+
+export const gameBoard = document.querySelector(".grid");
+export let shuffledArray = shuffle(chooseRandomCards(MAX_COUPLES));
+console.log(shuffledArray);
+gameBoard.classList.add(difficulty);
+
+function chooseRandomCards(numOfCouples) {
   let array1 = [];
 
-  while (array1.length < 6) {
+  while (array1.length < numOfCouples) {
     let randomNum = Math.floor(Math.random() * 52) + 1;
     if (!array1.includes(randomNum)) {
       array1.push(randomNum);
@@ -178,7 +132,7 @@ function correctGuess(card1, card2) {
   card2.dataset.active = "untouchable";
   userCorrectCouples++;
   console.log(userCorrectCouples);
-  if (userCorrectCouples === MAX_CORRECT_GUESSES) {
+  if (userCorrectCouples === MAX_COUPLES) {
     clearInterval(timerInterval);
     modalContainer.classList.add("show-message");
   }
