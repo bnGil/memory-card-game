@@ -11,6 +11,12 @@
   <body>
     <header class="home-page">
       <h1>Memory Card Game</h1>
+      <h5>Select difficulty:</h5>
+      <select name="difficulty" id="selectbox">
+        <option value="easy" selected>Easy (12 cards)</option>
+        <option value="medium">Medium (18 cards)</option>
+        <option value="hard">Hard (24 cards)</option>
+      </select>
       <a href="./game.html" class="btn home-btn">PLAY</a>
       <button class="btn home-btn" id="open">HELP</button>
       <div class="modal-container" id="modal-container">
@@ -29,6 +35,6 @@
         </div>
       </div>
     </header>
-    <script src="./js/index.js"></script>
+    <script src="./js/index.js" type="module"></script>
   </body>
 </html>

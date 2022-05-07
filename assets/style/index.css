@@ -25,9 +25,14 @@ body {
 }
 
 .home-page h1 {
+  font-size: 3rem;
   margin-bottom: 3rem;
   animation-name: h1-anim;
   animation-duration: 1s;
+}
+
+#selectbox {
+  margin-bottom: 4rem;
 }
 
 @keyframes h1-anim {
