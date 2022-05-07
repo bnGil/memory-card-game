@@ -1,14 +1,14 @@
 # memory-card-game
 
-A memory card game web application.
-
-The user has to flip all matching cards as fast as he can. 
-In the home page the user can select the difficulty between easy (12 cards), medium (18 cards) or hard (24 cards).
-When moving to the game page, a stopwatch is activated and stops when the user flips all the cards.
+A memory card game web application built with HTML, CSS and Javascript
 
 
-## Tools Used:
-1. HTML, CSS and Javascript.
+## Features:
+
+1. Selecting difficulty level between 12, 18 or 24 cards.
+2. Selecting theme between colors or deck of cards.
+3. Stopwatch to measure the time.
+4. Number of incorrect guesses counter.
  
 
 ## How to run this Project
