@@ -7,8 +7,17 @@ const uniqueCards = {
   hard: 12,
 };
 
-const difficulty = sessionStorage.getItem("difficulty");
-const theme = sessionStorage.getItem("theme");
+let difficulty = sessionStorage.getItem("difficulty");
+let theme = sessionStorage.getItem("theme");
+
+if (difficulty === null) {
+  difficulty = "easy";
+}
+
+if (theme === null) {
+  theme = "cards-theme";
+}
+
 let themeObject;
 switch (theme) {
   case "cards-theme":
