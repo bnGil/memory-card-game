@@ -52,3 +52,18 @@ export const elementsObject = {
   51: "spade-12",
   52: "spade-13",
 };
+
+export const elementColorsObject = {
+  1: "color-1",
+  2: "color-2",
+  3: "color-3",
+  4: "color-4",
+  5: "color-5",
+  6: "color-6",
+  7: "color-7",
+  8: "color-8",
+  9: "color-9",
+  10: "color-10",
+  11: "color-11",
+  12: "color-12",
+};

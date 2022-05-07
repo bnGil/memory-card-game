@@ -9,26 +9,34 @@
     <link rel="stylesheet" href="/assets/style/game.css" />
   </head>
   <body>
-    <div class="left-side">
-      <div id="stopwatch">00:00:00</div>
-    </div>
-    <div id="game-container">
-      <div class="grid"></div>
-    </div>
+    <main>
+      <div class="left-side">
+        <div class="stop-watch-container">
+          <h2>Timer</h2>
+          <div id="stopwatch">00:00:00</div>
+        </div>
+        <div class="incorrect-container">
+          <h2>Incorrect Guesses</h2>
+          <p id="incorrect-counter">0</p>
+        </div>
+        <a href="./index.html" class="home-btn">
+          <button class="btn">HOME</button>
+        </a>
+      </div>
+      <div id="game-container">
+        <div class="grid"></div>
+      </div>
+    </main>
     <div class="modal-container" id="modal-container">
       <div class="modal">
-        <h1>Congratulations! You won!</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium
-          earum architecto ipsam blanditiis magnam quos recusandae rerum sit
-          voluptatem provident, expedita est repudiandae, quibusdam fuga
-          eligendi consectetur qui pariatur amet perferendis quas. Quo
-          distinctio earum quaerat accusamus temporibus, blanditiis illo amet,
-          ut dolor libero neque possimus accusantium, nihil officia atque.
-        </p>
+        <h2>Congratulations, you won!</h2>
         <div class="end-btns">
-          <a href="/" class="btn home-btn">HOME</a>
-          <a href="./game.html" class="btn home-btn">PLAY AGAIN</a>
+          <a href="./index.html" class="home-btn">
+            <button class="btn">HOME</button>
+          </a>
+          <a href="./game.html" class="home-btn">
+            <button class="btn">PLAY AGAIN</button>
+          </a>
         </div>
       </div>
     </div>

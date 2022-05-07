@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
 :root {
   font-size: 62.5%;
 }
@@ -6,64 +10,65 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Abel', sans-serif;
 }
 
 body {
   height: 100vh;
   width: 100vw;
+  background: url("../imgs/geometry-bg.png");
+}
+
+main {
+  height: 100%;
+  width: 100%;
   display: flex;
+  gap: 3vmin;
   justify-content: space-around;
+  padding: 5vmin;
   align-items: center;
-  background-color: green;
 }
 
 .left-side {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 5vmin;
   flex-direction: column;
+  /* width: 20vmin; */
 }
 
-#stopwatch {
-  font-size: 3rem;
-  width: 120px;
+.stop-watch-container, .incorrect-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1vmin;
 }
 
-.btn {
-  padding: 1rem 3rem;
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  text-decoration: none;
-  text-align: center;
-  color: black;
-  background-color: white;
-  border: 4px solid black;
-  border-radius: 0.5rem;
-  width: 15rem;
+.stop-watch-container h2, .incorrect-container  h2 {
+  font-size: 2.5vmin;
 }
 
-.btn:hover {
-  background-color: rgb(234, 234, 234);
-  cursor: pointer;
+
+#stopwatch, #incorrect-counter {
+  font-size: 5vmin;
 }
 
 .grid {
   width: 80vmin;
   height: 80vmin;
   display: grid;
-  margin: auto;
-  gap: 1rem;
+  gap: 1vmin;
 }
 
 .easy {
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(4, 1fr);
 }
+
 .medium {
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(6, 1fr);
 }
+
 .hard {
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(6, 1fr);
@@ -74,6 +79,7 @@ body {
   perspective: 1000px;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 
 .card-container {
@@ -82,7 +88,6 @@ body {
   height: 100%;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
   pointer-events: none;
 }
 
@@ -102,7 +107,8 @@ body {
 }
 
 .flip-card-back {
-  background: url(../imgs/cards/back2.png) center center/contain no-repeat;
+  background-color: #FF5E5B;
+  border-radius: 5px;
 }
 
 .show {
@@ -318,28 +324,90 @@ body {
 
 .modal {
   background-color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  padding: 3rem 5rem;
-  width: 60rem;
-  max-width: 80%;
+  width: 80vmin;
+  height: 40vmin;
   text-align: center;
-}
-
-.modal p {
-  margin-top: 2rem;
-  opacity: 0.7;
-}
-
-.end-btns {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 }
 
+.modal h2 {
+  font-family: 'Lobster', cursive;
+  font-size: 5vmin;
+}
+
+/* .modal p {
+  opacity: 0.7;
+  font-size: 2.3vmin;
+  line-height: 4vmin;
+} */
+
+.end-btns {
+  display: flex;
+  align-items: center;
+  gap: 5vmin;
+  justify-content: space-between;
+ }
+
+
+.btn {
+  width: 22vmin;
+  height: 6vmin;
+  background-color: #FFED66;
+  border: none;
+  border-radius: 30px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2vmin;
+  box-shadow: 0 3px 0 black;
+  cursor: pointer;
+}
+
+
 @media (max-width: 768px) {
-  body {
-    flex-direction: column;
-    align-items: center;
+  main {
+    flex-direction: column-reverse;
+    align-content: center;
+    justify-content: space-around;
   }
+}
+
+
+
+.color-1 {
+  background-color: black }
+.color-2 {
+  background-color: red;
+}
+.color-3 {
+  background-color: blue;
+}
+.color-4 {
+  background-color: green;
+}
+.color-5 {
+  background-color: yellow;
+}
+.color-6 {
+  background-color: brown;
+}
+.color-7 {
+  background-color: orange;
+}
+.color-8 {
+  background-color: aqua;
+}
+.color-9 {
+  background-color: blueviolet;
+}
+.color-10 {
+  background-color: cornflowerblue;}
+.color-11 {
+  background-color: darkolivegreen;
+}
+.color-12 {
+  background-color: darkgray;
 }

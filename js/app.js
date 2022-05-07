@@ -1,5 +1,5 @@
 import { timerInterval } from "./timer.js";
-import { elementsObject } from "./elementsObj.js";
+import { elementsObject, elementColorsObject } from "./elementsObj.js";
 
 const uniqueCards = {
   easy: 6,
@@ -8,20 +8,41 @@ const uniqueCards = {
 };
 
 const difficulty = sessionStorage.getItem("difficulty");
+const theme = sessionStorage.getItem("theme");
+let themeObject;
+switch (theme) {
+  case "cards-theme":
+    themeObject = elementsObject;
+    break;
+  case "colors-theme":
+    themeObject = elementColorsObject;
+    break;
+}
+let sumRansom;
+switch (theme) {
+  case "cards-theme":
+    sumRansom = 52;
+    break;
+  case "colors-theme":
+    sumRansom = 12;
+    break;
+}
+
 const modalContainer = document.getElementById("modal-container");
 let userCorrectCouples = 0;
+let incorrectGuessCounter = document.querySelector("#incorrect-counter");
 const MAX_COUPLES = uniqueCards[difficulty];
 
 export const gameBoard = document.querySelector(".grid");
 export let shuffledArray = shuffle(chooseRandomCards(MAX_COUPLES));
-console.log(shuffledArray);
+
 gameBoard.classList.add(difficulty);
 
 function chooseRandomCards(numOfCouples) {
   let array1 = [];
 
   while (array1.length < numOfCouples) {
-    let randomNum = Math.floor(Math.random() * 52) + 1;
+    let randomNum = Math.floor(Math.random() * sumRansom) + 1;
     if (!array1.includes(randomNum)) {
       array1.push(randomNum);
     }
@@ -54,7 +75,7 @@ export function drawBoard(gameBoard, arr) {
     cardContainer.classList.add("card-container");
     card.appendChild(cardContainer);
     const front = document.createElement("div");
-    front.classList.add(elementsObject[arr[i]]);
+    front.classList.add(themeObject[arr[i]]);
     front.classList.add("flip-card-front");
     cardContainer.appendChild(front);
     const back = document.createElement("div");
@@ -62,8 +83,6 @@ export function drawBoard(gameBoard, arr) {
     cardContainer.appendChild(back);
   }
 }
-
-// gameBoard.addEventListener("click", cardHandler);
 
 export function cardHandler(e) {
   if (
@@ -104,19 +123,17 @@ function getTwoShownCards(arrOfCards) {
 }
 
 function compareTwoCards(card1, card2) {
-  console.log(card1.dataset.card);
-  console.log(card2.dataset.card);
   if (card1.dataset.card === card2.dataset.card) {
     correctGuess(card1, card2);
     return true;
   } else {
     incorrectGuess(card1, card2);
+    incorrectGuessCounter.innerHTML++;
     return false;
   }
 }
 
 function incorrectGuess(card1, card2) {
-  console.log("bye");
   setTimeout(() => flipBack(card1), 1000);
   setTimeout(() => flipBack(card2), 1000);
   card1.dataset.active = "false";
@@ -131,7 +148,6 @@ function correctGuess(card1, card2) {
   card1.dataset.active = "untouchable";
   card2.dataset.active = "untouchable";
   userCorrectCouples++;
-  console.log(userCorrectCouples);
   if (userCorrectCouples === MAX_COUPLES) {
     clearInterval(timerInterval);
     modalContainer.classList.add("show-message");
